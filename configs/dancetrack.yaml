@@ -1,0 +1,27 @@
+eval: True
+
+interval: 16 # max training interval
+
+# Train
+data_dir: '{DANCETRACK_DIR}/trackers_gt_t/'
+augment_data: True
+lr: 0.00025
+epochs: 100
+batch_size: 2048
+eval_every: 2
+gpus: [0,1,2,3]
+
+# Testing
+dataset: dancetrack
+det_dir: "{DANCETRACK_DIR}/detections/test"
+info_dir: '{DANCETRACK_DIR}/test'
+
+reid_dir: "./cache/DanceTrack/embeddings_yolox_x/"
+high_thres: 0.6
+low_thres: 0.4
+w_assoc_emb: 2.2
+aw_param: 1.7
+preprocess_workers: 16
+
+device: cuda
+eval_device: cuda
